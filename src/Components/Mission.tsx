@@ -1,20 +1,17 @@
 import React from 'react'
 
-const Mission= ({})=> {
+const Mission = () => {
   return (
-    <div className='flex flex-col m-auto items-center w-1/2 mb-20 p-10'>
-      <div className='mb-10 text-2xl font-semibold'>
-        <h2>OUR MISSION</h2>
-      </div>
-      <div>
-        <p className='font-2xl'>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
-          Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-          Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
-          Even the all-powerful Pointing has no control about the
-          Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
-          Even the all-powerful Pointing has no control about the
-        </p>
-      </div>
+    <div className='flex flex-col items-center w-full sm:w-3/4 lg:w-1/2 mx-auto mb-20 p-4 sm:p-10'>
+      <h2 className='mb-6 text-xl sm:text-2xl font-semibold text-center'>OUR MISSION</h2>
+      <p className='text-sm sm:text-base text-center'>
+        Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
+        Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
+        Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
+        Even the all-powerful Pointing has no control about the
+        Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
+        Even the all-powerful Pointing has no control about the
+      </p>
     </div>
   )
 }
