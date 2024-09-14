@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Icon1 from '../assets/ic_outline-email.svg'
 import Icon2 from '../assets/ion_location-outline.svg'

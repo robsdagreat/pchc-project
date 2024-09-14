@@ -1,4 +1,3 @@
-import React from 'react';
 import ImageCarousel from '../Components/ImageCarousel';
 import ImgArr from "../assets/Utils/ImageCarousel";
 import AboutCard from '../Components/AbouCard';
