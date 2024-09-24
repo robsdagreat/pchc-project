@@ -1,5 +1,9 @@
-
-const ImageText = ({img}) => {
+interface ImageTprops{
+  img: string;
+  head:string;
+  message:string;
+}
+const ImageText:React.FC<ImageTprops> = ({img,head,message}) => {
   return (
     <div className='w-full sm:w-4/5 relative mb-20'>
       <div className="w-full h-0 pb-[75%] relative overflow-hidden">
@@ -10,10 +14,9 @@ const ImageText = ({img}) => {
         />
       </div>
       <div className='inset-x-0 mx-auto bg-white flex flex-col items-center p-5 w-5/6 rounded-xl shadow-lg -translate-y-1/4 z-10'>
-        <h2 className='mb-4 text-xl sm:text-2xl font-semibold'>OUR MISSION</h2>
+        <h2 className='mb-4 text-xl sm:text-2xl font-semibold'>{head}</h2>
         <p className='text-sm sm:text-base opacity-60 text-center'>
-          Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
-          Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
+          {message}
         </p>
       </div>
     </div>

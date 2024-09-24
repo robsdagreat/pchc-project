@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import Icon1 from '../assets/ic_outline-email.svg'
 import Icon2 from '../assets/ion_location-outline.svg'
 import Icon3 from '../assets/ic_round-phone.svg'
+import { CiFacebook } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -11,10 +14,21 @@ const Footer = () => {
           <div>
             <h3 className='text-lg font-semibold border-b-2 border-white pb-2 mb-4'>ABOUT US</h3>
             <p className='text-white text-opacity-60 mt-4'>
-              Far far away, behind the word mountains, 
-              far from the countries Vokalia and Consonantia, 
-              there live the blind texts.
+             We are a Non-governmental organisation whose aim is to
+             create safe environment for children with severe and mild autism
+             through educating the autistic children and also raising awareness of the society.
             </p>
+            <div className='flex flex-row mt-6 space-x-4'>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                 <CiFacebook size={28} className="text-white hover:text-blue-500 cursor-pointer transition-colors duration-300" />
+              </a>
+              <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">   
+              <FaXTwitter size={28} className="text-white hover:text-blue-400 cursor-pointer transition-colors duration-300" />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">   
+              <FaInstagram size={28} className="text-white hover:text-pink-500 cursor-pointer transition-colors duration-300" />
+              </a>
+            </div>
           </div>
           
           <div>
