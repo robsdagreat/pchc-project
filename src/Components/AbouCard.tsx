@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function AboutCard({ img, title, isReversed }) {
+export default function AboutCard({ img, title, isReversed, info }) {
   return (
     <div className={`mx-auto flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-around py-10 px-4 sm:px-8 md:px-12 lg:px-24`}>
       {/* Image animation - Sliding in from the left (or right if reversed) */}
@@ -26,11 +26,7 @@ export default function AboutCard({ img, title, isReversed }) {
       >
         <h2 className='text-xl sm:text-2xl font-medium mb-4'>{title}</h2>
         <p className='opacity-70 text-sm md:text-base lg:text-lg w-full md:w-3/4 lg:w-2/3 mx-auto md:mx-0 leading-relaxed'>
-          Pallotti Children Hope Centre is a boarding Centre for Children with autism,
-          mild and moderate Intellectual Disabilities. The Centre, which is the first of its kind in Rwanda,
-          is founded by a German organization known as Wir Für Ruanda. This organization realized,
-          through Dr. Bernd BIERBUM, how marginalized and excluded children with intellectual disabilities were,
-          and still are, from many services being enjoyed by other members of society.
+          {info}
         </p>
       </motion.div>
     </div>
