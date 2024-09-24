@@ -20,13 +20,13 @@ const Footer = () => {
             </p>
             <div className='flex flex-row mt-6 space-x-4'>
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                 <CiFacebook size={28} className="text-white hover:text-blue-500 cursor-pointer transition-colors duration-300" />
+                 <CiFacebook size={29} className="text-white hover:text-blue-500 cursor-pointer transition-colors duration-300" />
               </a>
               <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">   
-              <FaXTwitter size={28} className="text-white hover:text-blue-400 cursor-pointer transition-colors duration-300" />
+              <FaXTwitter size={29} className="text-white hover:text-blue-400 cursor-pointer transition-colors duration-300" />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">   
-              <FaInstagram size={28} className="text-white hover:text-pink-500 cursor-pointer transition-colors duration-300" />
+              <FaInstagram size={29} className="text-white hover:text-pink-500 cursor-pointer transition-colors duration-300" />
               </a>
             </div>
           </div>
