@@ -10,6 +10,8 @@ import ImageText from "../Components/ImageText.js";
 import Profile from "../Components/Profile.js";
 import ImgArr from '../assets/Utils/ImageCarousel.js'
 import Prof from '../assets/profile.png'
+import Prof2 from '../assets/profile2.png'
+import Prof3 from '../assets/profile3.png'
 
 
 const Home = () => {
@@ -80,12 +82,12 @@ const Home = () => {
           <Profile 
           name='Fr. Eugène NIYONZIMA'
           position="the Superior of the Pallottines"
-          profile={Prof}
+          profile={Prof3}
           />
           <Profile 
           name='Fr. Jean Pierre MUNYANEZA'
           position="Director of PCHC"
-          profile={Prof}
+          profile={Prof2}
           />
         </div>
       </div>
