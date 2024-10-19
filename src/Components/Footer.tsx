@@ -46,15 +46,21 @@ const Footer = () => {
             <div className='text-white text-opacity-60 mt-4 space-y-4'>
               <div className='flex items-start'>
                 <img src={Icon2} alt="address-icon" className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
-                <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+                <p>Kibilizi sector, Gisagara, South Province, Rwanda</p>
               </div>
-              <div className='flex items-center'>
-                <img src={Icon3} alt="phone-icon" className="w-5 h-5 mr-3 flex-shrink-0" />
-                <p>+250 788 888 888</p>
+              <div className='flex flex-col'>
+                <div className='flex flex-row'>
+                  <img src={Icon3} alt="phone-icon" className="w-5 h-5 mr-3 flex-shrink-0" />
+                 <span> <p>+(250) 79 4690 299</p></span>
+                </div> 
+                <div className='flex flex-row'>
+                  <img src={Icon3} alt="phone-icon" className="w-5 h-5 mr-3 flex-shrink-0" />
+                  <p>+(250) 78 4644 014</p>
+                </div>  
               </div>
               <div className='flex items-center'>
                 <img src={Icon1} alt="mail-icon" className="w-5 h-5 mr-3 flex-shrink-0" />
-                <p>info@pallottichildrenhope.com</p>
+                <p>pallottichildrenhopecentrerw@gmail.com</p>
               </div>
             </div>
           </div>
