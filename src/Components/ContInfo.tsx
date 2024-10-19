@@ -8,22 +8,22 @@ const ContInfo = () => {
         <ContactInfoItem
           title="Address"
           icon={<FaMapMarkerAlt className='text-xl text-gray-600 hover:text-blue-500 transition-colors duration-300 hover:scale-110' />}
-          href="https://www.google.com/maps/search/?api=1&query=198+West+21th+Street,+Suite+721,+New+York+NY+10016"
-          text="198 West 21th Street, Suite 721 New York NY 10016"
+          href="https://maps.app.goo.gl/qsLQuSpBqhjmpFqbA"
+          text="Gisagara, Sothern province, Rwanda"
           className="text-blue-600"
         />
         <ContactInfoItem
           title="Phone"
           icon={<FaPhone className='text-xl text-gray-600 hover:text-green-500 transition-colors duration-300 hover:scale-110' />}
-          href="tel:+250788888888"
-          text="+250 788 888 888"
+          href="tel:+250784644014"
+          text="+250 784 64 40 14"
           className="text-green-600"
         />
         <ContactInfoItem
           title="Email"
           icon={<FaEnvelope className='text-xl text-gray-600 hover:text-red-500 transition-colors duration-300 hover:scale-110' />}
-          href="mailto:info@pallottichildrenhope.com"
-          text="info@pallottichildrenhope.com"
+          href="mailto:pallottichildrenhopecentrerw@gmail.com"
+          text="pallottichildrenhopecentrerw@gmail.com"
           className="text-red-600"
         />
       </div>
