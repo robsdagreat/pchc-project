@@ -48,7 +48,8 @@ export interface GalleryDataItem {
     id: number;
     thumbnailUrl: string;
     fullImageUrl: string;
-    
+    title?: string;
+    category?: string;
 }
 
 const galleryData: GalleryDataItem[] = [

@@ -5,6 +5,9 @@ import Home from './Pages/Home.js'
 import Contact from './Pages/Contact.js'
 import About from './Pages/About.js'
 import Gallery from './Components/Gallery.js'
+import Blog from './Pages/Blog.js'
+import ScrollToHash from './Components/ScrollToHash.js'
+import ScrollToTop from './Components/ScrollToTop.js'
 
 function App() {
   
@@ -12,12 +15,16 @@ function App() {
   return (
     <>
     <Router>
+     <ScrollToHash />
+     <ScrollToTop />
      <MainLayout>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/gallery' element={<Gallery/>} />
+        <Route path='/work' element={<Home/>} />
+        <Route path='/blogs' element={<Blog/>} />
       </Routes>
      </MainLayout>
      </Router>

@@ -10,12 +10,11 @@
     "preview": "vite preview"
   },
   "vercel": {
-    "buildCommand": "yarn build",
+    "buildCommand": "npm run build",
     "outputDirectory": "dist"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/line-clamp": "^0.4.4",
     "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.5.4",
