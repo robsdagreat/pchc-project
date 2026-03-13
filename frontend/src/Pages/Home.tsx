@@ -69,35 +69,35 @@ const Home = () => {
         <Hero slides={heroSlides} />
       </div>
       
-      <div id="about-us" className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-[#FCF8F2] scroll-mt-20">
+      <div id="about-us" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
         <WhoWeAre />
       </div>
       
-      <div id="our-work" className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-slate-100 scroll-mt-20">
+      <div id="our-work" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-slate-100 scroll-mt-20">
         <WhatWeDo />
       </div>
       
-      <div className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-[#FCF8F2] scroll-mt-20">
+      <div className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
         <Impact />
       </div>
       
-      <div id="blogs" className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-slate-100 scroll-mt-20">
+      <div id="blogs" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-slate-100 scroll-mt-20">
         <Stories />
       </div>
-
-      <div className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-[#333333] scroll-mt-20">
+ 
+      <div className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#333333] scroll-mt-20">
         <Achievements />
       </div>
-
-      <div className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-[#FCF8F2] scroll-mt-20">
+ 
+      <div className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
         <GetInvolved />
       </div>
       
-      <div className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-slate-100 scroll-mt-20">
+      <div className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-slate-100 scroll-mt-20">
         <Team />
       </div>
-
-      <div id="contact" className="snap-start min-h-[calc(100vh-5rem)] h-auto py-12 flex items-center bg-[#FCF8F2] scroll-mt-20">
+ 
+      <div id="contact" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
         <HomeContact />
       </div>
     </div>

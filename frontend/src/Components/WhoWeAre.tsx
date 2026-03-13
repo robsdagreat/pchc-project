@@ -2,7 +2,7 @@ import ImgArr from '../assets/Utils/ImageCarousel';
 
 const WhoWeAre = () => {
   return (
-    <section className="w-full bg-[#FCF8F2] py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 scroll-mt-24">
+    <section className="w-full bg-[#FCF8F2] py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 scroll-mt-24">
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-12">
         
         {/* Left Side: Text Content */}

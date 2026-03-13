@@ -9,7 +9,7 @@ const Achievements = () => {
   ];
 
   return (
-    <section className="w-full bg-[#333333] py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48">
+    <section className="w-full bg-[#333333] py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
         
         {/* Left Side: Content */}
@@ -48,9 +48,9 @@ const Achievements = () => {
         {/* Right Side: Image with adjusted scale */}
         <div className="flex-1 w-full lg:w-2/5 flex justify-center lg:justify-end relative mt-6 lg:mt-0">
           <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px]">
-            {/* Subtle Glow behind image */}
+             {/* Subtle Glow behind image */}
             <div className="absolute -inset-4 bg-green-500/5 rounded-[2.5rem] blur-2xl -z-10"></div>
-            
+             
             <img 
               src={HandshakeImg} 
               alt="Trust and Transparency" 

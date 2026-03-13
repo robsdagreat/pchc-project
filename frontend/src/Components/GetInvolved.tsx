@@ -25,7 +25,7 @@ const GetInvolved = () => {
   ];
 
   return (
-    <section className="w-full bg-[#FCF8F2] py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 border-t border-gray-200">
+    <section className="w-full bg-[#FCF8F2] py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48">
       <div className="max-w-7xl mx-auto text-center mb-8 md:mb-12">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4 tracking-tight">
           Ways to <span className="text-green-500">Get Involved</span>

@@ -3,7 +3,7 @@ import CaringImg from '../assets/caring_contact.png';
 
 const HomeContact = () => {
   return (
-    <section className="w-full relative py-12 md:py-16 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#FCF8F2] pb-16 lg:pb-16">
+    <section className="w-full relative py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#FCF8F2] pb-16 lg:pb-0">
       <div className="relative z-10 max-w-7xl mx-auto px-2 md:px-6">
         <div className="max-w-6xl mx-auto relative group">
           {/* Main Card */}

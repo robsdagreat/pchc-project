@@ -6,6 +6,7 @@ import Contact from './Pages/Contact.js'
 import About from './Pages/About.js'
 import Gallery from './Components/Gallery.js'
 import Blog from './Pages/Blog.js'
+import Donate from './Pages/Donate.js'
 import ScrollToHash from './Components/ScrollToHash.js'
 import ScrollToTop from './Components/ScrollToTop.js'
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/gallery' element={<Gallery/>} />
         <Route path='/work' element={<Home/>} />
         <Route path='/blogs' element={<Blog/>} />
+        <Route path='/donate' element={<Donate/>} />
       </Routes>
      </MainLayout>
      </Router>

@@ -53,7 +53,7 @@ const Stories = () => {
   const recentStories = stories.slice(1);
 
   return (
-    <section className="w-full bg-slate-100 py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 border-t border-gray-100">
+    <section className="w-full bg-slate-100 py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 border-t border-gray-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="max-w-7xl mx-auto text-center mb-8 md:mb-12">
