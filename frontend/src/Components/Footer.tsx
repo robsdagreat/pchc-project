@@ -11,6 +11,7 @@ const Footer = () => {
     { name: 'Blogs', path: '/#blogs' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/#contact' },
+    { name: 'Sign In', path: '/admin/login' },
   ];
 
   return (

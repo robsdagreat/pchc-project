@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, DollarSign, Globe, Users, CheckCircle2, ShieldCheck, CreditCard } from 'lucide-react';
+import { fetchData } from '../utils/api';
 
 interface DonationTierProps {
   amount?: number;
@@ -39,15 +40,35 @@ const DonationTier: React.FC<DonationTierProps> = ({ amount, description, isCust
 );
 
 const Donate = () => {
-  const [selectedTier, setSelectedTier] = useState<number | 'custom'>(50);
+  const [tiers, setTiers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedTier, setSelectedTier] = useState<number | 'custom' | null>(null);
   const [customAmount, setCustomAmount] = useState('');
   const [isMonthly, setIsMonthly] = useState(false);
 
-  const tiers = [
-    { amount: 10, title: "Supporter", description: "Provides essential school supplies for one child for a month." },
-    { amount: 50, title: "Guardian", description: "Covers nutritious meals and healthcare for a child for two weeks." },
-    { amount: 100, title: "Champion", description: "Funds primary education and specialized therapy for a child's semester." },
-  ];
+  useEffect(() => {
+    const loadTiers = async () => {
+      try {
+        const response = await fetchData('/donations/tiers');
+        const tiersArray = response.data.tiers;
+        const formattedTiers = tiersArray.map((t: any) => ({
+          ...t,
+          description: t.impact_description,
+          amount: parseFloat(t.amount)
+        }));
+        setTiers(formattedTiers);
+        if (formattedTiers.length > 0) {
+          setSelectedTier(formattedTiers[1]?.amount || formattedTiers[0].amount);
+        }
+      } catch (err) {
+        setError('Failed to load donation tiers.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadTiers();
+  }, []);
 
   const handleDonate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,6 +76,9 @@ const Donate = () => {
     console.log(`Processing ${isMonthly ? 'monthly' : 'one-time'} donation of $${finalAmount}`);
     alert("This is a demonstration. Thank you for your interest in supporting our cause!");
   };
+
+  if (loading) return <div className="min-h-screen flex items-center justify-center bg-[#FCF8F2]"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div></div>;
+  if (error) return <div className="min-h-screen flex items-center justify-center bg-[#FCF8F2] font-bold text-red-500">{error}</div>;
 
   return (
     <div className="w-full bg-[#FCF8F2] min-h-screen pt-40 pb-20 px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 flex items-start justify-center">

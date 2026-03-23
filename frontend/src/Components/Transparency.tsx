@@ -1,12 +1,7 @@
-import TransparencyImg from '../assets/transparency_handshake.png';
+import { HOME_CONTENT } from '../constants/content';
 
 const Transparency = () => {
-  const trustPoints = [
-    "Annual reports available",
-    "Regular impact updates",
-    "Verified NGO activities",
-    "Secure online donation process"
-  ];
+  const { transparency } = HOME_CONTENT;
 
   return (
     <section className="w-full bg-[#FFFEFA] py-24 px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 border-t border-gray-100">
@@ -16,19 +11,21 @@ const Transparency = () => {
         <div className="flex-1 w-full lg:w-1/2">
           <div className="mb-8 relative inline-block">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 tracking-tight">
-              Your <span className="relative">
-                Trust
+              {transparency.title.split(transparency.highlight)[0]}
+              <span className="relative">
+                {transparency.highlight}
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#f59e0b] rounded-full"></div>
-              </span> Matters to Us
+              </span>
+              {transparency.title.split(transparency.highlight)[1]}
             </h2>
           </div>
           
           <p className="font-outfit font-light text-gray-700 text-lg leading-relaxed mb-10 tracking-wide max-w-2xl">
-            We maintain complete transparency in how donations are utilized. Every contribution is tracked, audited, and directed toward the intended program.
+            {transparency.description}
           </p>
           
           <ul className="space-y-5 mb-12">
-            {trustPoints.map((point, idx) => (
+            {transparency.points.map((point, idx) => (
               <li key={idx} className="flex items-center text-gray-800 font-outfit font-light text-[17px] tracking-wide">
                 <div className="relative mr-4 flex-shrink-0">
                   <div className="w-6 h-6 rounded-full border-2 border-[#f59e0b] flex items-center justify-center">
@@ -41,7 +38,7 @@ const Transparency = () => {
           </ul>
           
           <button className="bg-[#fbbf24] hover:bg-[#f59e0b] text-gray-900 font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-200/50 text-[16px] tracking-wide">
-            View Donation Reports
+            {transparency.ctaText}
           </button>
         </div>
 
@@ -50,7 +47,7 @@ const Transparency = () => {
           <div className="relative w-full max-w-[550px]">
             <div className="absolute -inset-4 bg-orange-100/30 rounded-3xl blur-2xl -z-10 animate-pulse"></div>
             <img 
-              src={TransparencyImg} 
+              src={transparency.image} 
               alt="Transparency and Trust" 
               className="relative z-10 w-full h-auto object-cover rounded-3xl shadow-2xl border-4 border-white"
             />

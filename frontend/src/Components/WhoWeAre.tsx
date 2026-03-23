@@ -1,6 +1,7 @@
-import ImgArr from '../assets/Utils/ImageCarousel';
+import { HOME_CONTENT } from '../constants/content';
 
 const WhoWeAre = () => {
+  const { whoWeAre } = HOME_CONTENT;
   return (
     <section className="w-full bg-[#FCF8F2] py-10 md:py-12 lg:py-0 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-48 scroll-mt-24">
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-12">
@@ -8,7 +9,11 @@ const WhoWeAre = () => {
         {/* Left Side: Text Content */}
         <div className="flex-1 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
           <div className="mb-4 relative inline-block">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-1 tracking-tight">Who We <span className="text-green-500">Are</span></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-1 tracking-tight">
+              {whoWeAre.title.split(whoWeAre.highlight)[0]} 
+              <span className="text-green-500">{whoWeAre.highlight}</span>
+              {whoWeAre.title.split(whoWeAre.highlight)[1]}
+            </h2>
             {/* Orange Squiggly Underline SVG */}
             <svg 
               className="w-full max-w-[140px] md:max-w-[200px] h-auto text-green-500 -mt-1 md:-mt-2 mx-auto md:mx-0" 
@@ -27,20 +32,11 @@ const WhoWeAre = () => {
           </div>
           
           <p className="font-outfit font-light text-gray-700 text-sm sm:text-[15px] md:text-base xl:text-lg leading-relaxed mb-6 tracking-wide max-w-lg md:max-w-none">
-            We are a non-profit organization dedicated to uplifting vulnerable communities
-            through impactful programs focused on education, health, hunger relief, and women
-            empowerment. Since our inception, we have helped thousands of individuals gain
-            access to opportunities that transform their lives. Our mission is to create long-term,
-            sustainable change by addressing the root causes of poverty and inequality.
+            {whoWeAre.description}
           </p>
           
           <ul className="space-y-3 mb-8 text-left inline-block">
-            {[
-              "10+ years of community service",
-              "50,000+ lives impacted",
-              "Transparent use of donations",
-              "Grassroots volunteers working on the ground"
-            ].map((item, idx) => (
+            {whoWeAre.bullets.map((item, idx) => (
               <li key={idx} className="flex items-center text-gray-800 font-outfit font-light text-sm sm:text-[15px] tracking-wide">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-3 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2.5"/>
@@ -51,8 +47,8 @@ const WhoWeAre = () => {
             ))}
           </ul>
           
-          <button className="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 text-center text-[15px] tracking-wide inline-block w-full sm:w-auto">
-            Learn More About Us
+          <button className="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-3 px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm text-center text-xs md:text-sm uppercase tracking-widest min-w-[200px] w-full sm:w-auto">
+            {whoWeAre.ctaText}
           </button>
         </div>
         
@@ -64,7 +60,7 @@ const WhoWeAre = () => {
             
             {/* Image */}
             <img 
-              src={ImgArr[0]} 
+              src={whoWeAre.image} 
               alt="Smiling Children" 
               className="relative z-10 w-full h-auto object-cover rounded-2xl shadow-lg"
             />

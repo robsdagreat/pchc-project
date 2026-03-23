@@ -1,53 +1,53 @@
+import { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import StoryFeatured from '../assets/story_featured.png';
-import StoryLearning from '../assets/story_learning.png';
-import StoryMusic from '../assets/story_music.png';
+import { fetchData } from '../utils/api';
 
 const Stories = () => {
-  const stories = [
-    {
-      id: 1,
-      type: 'image',
-      mediaUrl: StoryFeatured,
-      category: 'Education & Art',
-      title: 'How painting changed David\'s world',
-      description: 'David, who uses a wheelchair, found his voice through our inclusive art therapy program. What started as small brushstrokes has become a canvas of confidence and self-expression.',
-      author: 'by Sarah Johnson'
-    },
-    {
-      id: 2,
-      type: 'video',
-      mediaUrl: StoryLearning,
-      category: 'Cognitive Development',
-      title: '5 ways inclusive learning helps children thrive',
-      author: 'by Michael Chen'
-    },
-    {
-      id: 3,
-      type: 'image',
-      mediaUrl: StoryMusic,
-      category: 'Therapy & Growth',
-      title: 'The rhythm of hope: Maria\'s music journey',
-      author: 'by Dr. Emily White'
-    },
-    {
-      id: 4,
-      type: 'video',
-      mediaUrl: StoryFeatured, // Using featured as placeholder for video 2
-      category: 'Community Support',
-      title: 'Building a playground for all abilities',
-      author: 'by James Wilson'
-    },
-    {
-      id: 5,
-      type: 'image',
-      mediaUrl: StoryLearning,
-      category: 'Health & Care',
-      title: 'Mental health support for diverse needs',
-      author: 'by Dr. Kevin Adams'
-    }
-  ];
+  const [stories, setStories] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadStories = async () => {
+      try {
+        const response = await fetchData('/blogs');
+        const blogsArray = response.data.blogs;
+        
+        const formattedStories = blogsArray.slice(0, 5).map((blog: any) => ({
+          id: blog.id,
+          type: blog.media_type || 'image',
+          mediaUrl: blog.media_url || 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=800',
+          category: blog.category,
+          title: blog.title,
+          description: blog.content,
+          author: blog.author ? `by ${blog.author}` : 'by PCHC Team'
+        }));
+        
+        console.log('Formatted Stories:', formattedStories);
+        setStories(formattedStories);
+      } catch (err) {
+        console.error('Failed to load stories:', err);
+        setError('Failed to load stories. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadStories();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full py-20 flex justify-center items-center bg-slate-100">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+      </div>
+    );
+  }
+
+  if (error || stories.length === 0) {
+    return null; // Don't show the section if it fails or is empty
+  }
 
   const featuredStory = stories[0];
   const recentStories = stories.slice(1);
@@ -72,6 +72,9 @@ const Stories = () => {
                 src={featuredStory.mediaUrl} 
                 alt={featuredStory.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=800';
+                }}
               />
               {featuredStory.type === 'video' && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors duration-300">
@@ -101,10 +104,9 @@ const Stories = () => {
               </div>
             </div>
           </Link>
- 
           {/* Right Column: Recent Stories List */}
           <div className="w-full lg:w-1/3 flex flex-col space-y-6 lg:space-y-4 pt-6 mt-2 lg:pt-0 lg:mt-0 border-t border-gray-200 lg:border-none">
-            {recentStories.map((story) => (
+            {recentStories.map((story, index) => (
               <div key={story.id} className="flex flex-col space-y-4">
                 <Link to={`/blogs?id=${story.id}`} className="flex gap-4 sm:gap-6 lg:gap-4 group cursor-pointer items-center">
                   <div className="relative flex-shrink-0 w-28 h-20 sm:w-36 sm:h-24 md:w-40 md:h-28 lg:w-24 lg:h-16 xl:w-28 xl:h-20 overflow-hidden rounded-lg bg-gray-100 shadow-sm">
@@ -112,6 +114,9 @@ const Stories = () => {
                       src={story.mediaUrl} 
                       alt={story.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=800';
+                      }}
                     />
                     {story.type === 'video' && (
                       <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/30 transition-colors duration-300">
@@ -133,13 +138,13 @@ const Stories = () => {
                     </span>
                   </div>
                 </Link>
- 
-                {/* User requested "See All Stories" button below the "Mental health" blog (ID 5) */}
-                {story.id === 5 && (
+
+                {/* Show 'See All Stories' button after the last item in the list */}
+                {index === recentStories.length - 1 && (
                   <div className="pt-4 flex w-full justify-center lg:justify-start">
                     <Link
                       to="/blogs"
-                      className="w-full sm:w-auto text-center border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-3 min-w-[200px] px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm text-xs md:text-sm uppercase tracking-widest"
+                      className="w-full sm:w-auto text-center border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-3 min-w-[200px] px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm text-xs md:text-sm uppercase tracking-widest"
                     >
                       See All Stories
                     </Link>

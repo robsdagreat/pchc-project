@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Hero from "../Components/Hero.js";
-import ImgArr from '../assets/Utils/ImageCarousel.js'
+import { fetchData } from "../utils/api.js";
 import Team from "../Components/Team.js";
 import HomeContact from "../Components/HomeContact.js";
 import WhoWeAre from "../Components/WhoWeAre.js";
@@ -10,63 +10,24 @@ import Stories from "../Components/Stories.js";
 import Achievements from "../Components/Achievements.js";
 import GetInvolved from "../Components/GetInvolved.js";
 
+import { HOME_CONTENT } from "../constants/content";
+
 const Home = () => {
   useEffect(() => {
-    document.documentElement.classList.add('snap-enabled');
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (id) {
-            window.history.replaceState(null, '', `/#${id}`);
-            window.dispatchEvent(new Event('hashchange'));
-          }
-        }
-      });
+    const loadHomeData = async () => {
+      try {
+        await fetchData('/content/homepage');
+      } catch (err) {
+        console.error('Failed to load other homepage data', err);
+      }
     };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.5,
-      rootMargin: "-10% 0px -10% 0px"
-    });
-
-    const sections = document.querySelectorAll('.snap-start[id]');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove('snap-enabled');
-    };
+    loadHomeData();
   }, []);
-
-  const heroSlides = [
-    {
-      image: ImgArr[0],
-      title: <>Together We Can <span className="text-green-500">Change Lives</span></>,
-      description: "Providing specialized care and education for children with autism and intellectual disabilities, ensuring a nurturing environment where no child is left behind."
-    },
-    {
-      image: ImgArr[1],
-      title: <>Empowering <span className="text-green-500">Their Future</span></>,
-      description: "Customized learning programs and dedicated educators working together to unlock every child's unique potential through specialized support."
-    },
-    {
-      image: ImgArr[2],
-      title: <>Unleashing <span className="text-green-500">Creativity</span></>,
-      description: "Fostering self-expression and cognitive development through inclusive art therapy and creative programs tailored for diverse abilities."
-    },
-    {
-      image: ImgArr[3],
-      title: <>Every Child <span className="text-green-500">Belongs</span></>,
-      description: "Building a compassionate community where inclusion, joy, and individual growth are celebrated every single day for all our children."
-    }
-  ];
 
   return (
     <div className="scroll-smooth">
       <div id="hero" className="snap-start relative min-h-screen w-full">
-        <Hero slides={heroSlides} />
+        <Hero slides={HOME_CONTENT.hero.slides} />
       </div>
       
       <div id="about-us" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
@@ -76,6 +37,8 @@ const Home = () => {
       <div id="our-work" className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-slate-100 scroll-mt-20">
         <WhatWeDo />
       </div>
+
+
       
       <div className="snap-start min-h-[calc(100vh-5rem)] lg:h-screen py-12 lg:py-0 flex items-center bg-[#FCF8F2] scroll-mt-20">
         <Impact />

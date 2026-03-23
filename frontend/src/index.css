@@ -10,11 +10,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for elements like the Blog side panel but keep functionality */
-.custom-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.custom-scrollbar {
+.custom-scrollbar, .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
