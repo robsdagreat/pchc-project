@@ -82,6 +82,11 @@ app.use('/api/content', contentRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/users', userRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.status(200).send('PCHC Project API is running');
+});
+
 // Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
