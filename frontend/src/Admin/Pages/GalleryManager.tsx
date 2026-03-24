@@ -9,9 +9,6 @@ import {
   Camera,
   Upload,
   Search,
-  Grid,
-  Filter,
-  MoreVertical,
   Check,
   AlertCircle
 } from 'lucide-react';
@@ -30,7 +27,6 @@ const GalleryManager: React.FC = () => {
   const [images, setImages] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
@@ -258,7 +254,7 @@ const GalleryUploadModal = ({ onSave, onClose }: { onSave: any, onClose: any }) 
       const uploadData = new FormData();
       uploadData.append('file', file);
 
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://pchc-project.onrender.com/api';
       const token = localStorage.getItem('adminToken');
       
       const uploadRes = await fetch(`${API_URL}/upload`, {

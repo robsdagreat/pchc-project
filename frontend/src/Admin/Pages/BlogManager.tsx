@@ -84,7 +84,7 @@ const BlogManager: React.FC = () => {
         const uploadData = new FormData();
         uploadData.append('file', file);
         
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+        const API_URL = import.meta.env.VITE_API_URL || 'https://pchc-project.onrender.com/api';
         const token = localStorage.getItem('adminToken');
         
         const uploadRes = await fetch(`${API_URL}/upload`, {
