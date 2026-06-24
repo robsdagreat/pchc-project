@@ -25,13 +25,6 @@ export const HOME_CONTENT = {
         highlight: "Creativity",
         description: "At Pallotti Children’s Hope Centre, we foster self-expression and cognitive development through inclusive art therapy and creative programs tailored to children of all abilities.",
         maxWidth: "lg:max-w-[80%]"
-      },
-      {
-        image: ImgArr[3],
-        title: "Every Child Belongs",
-        highlight: "Belongs",
-        description: "At Pallotti Children’s Hope Centre, we create a loving and inclusive community where every child is valued, joy is shared, and each individual is supported to grow and thrive every day",
-        maxWidth: "lg:max-w-[80%]"
       }
     ]
   },
@@ -117,13 +110,14 @@ export const HOME_CONTENT = {
     image: CaringImg,
     details: {
       address: "674 Washington Avenue, Kimisagara",
-      phone: "+250 788 123 456",
+      phone: "+250 782 743 397 / +250 784 898 341",
       email: "info@pallottihopecentre.org"
     },
     socials: {
       facebook: "#",
-      instagram: "#",
-      twitter: "#"
+      instagram: "https://www.instagram.com/pall.ottichildrenshope",
+      twitter: "https://x.com/Pallottihope",
+      tiktok: "https://www.tiktok.com/@pallotti.children"
     }
   }
 };

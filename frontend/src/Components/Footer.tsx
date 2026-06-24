@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
-import { FaFacebookF, FaXTwitter, FaInstagram } from "react-icons/fa6";
-import Logo from '../assets/Logo.png';
+import { FaFacebookF, FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
+import Logo from '../assets/Logo.jpeg';
 
 const Footer = () => {
   const quickLinks = [
@@ -33,11 +33,14 @@ const Footer = () => {
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">
                  <FaFacebookF size={18} />
               </a>
-              <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">   
+              <a href="https://x.com/Pallottihope" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">
                  <FaXTwitter size={18} />
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">   
+              <a href="https://www.instagram.com/pall.ottichildrenshope" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">
                  <FaInstagram size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@pallotti.children" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1">
+                 <FaTiktok size={18} />
               </a>
             </div>
           </div>
@@ -86,8 +89,8 @@ const Footer = () => {
                 </div>
                 <div className="pt-1">
                   <h4 className="text-white font-semibold mb-1">Phone</h4>
-                  <p className="text-gray-400 text-sm">+(250) 79 4690 299</p>
-                  <p className="text-gray-400 text-sm">+(250) 78 4644 014</p>
+                  <p className="text-gray-400 text-sm">+(250) 78 2743 397</p>
+                  <p className="text-gray-400 text-sm">+(250) 78 4898 341</p>
                 </div>
               </div>
 

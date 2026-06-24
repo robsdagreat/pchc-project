@@ -15,8 +15,8 @@ const ContInfo = () => {
         <ContactInfoItem
           title="Phone"
           icon={<FaPhone className='text-xl text-gray-600 hover:text-green-500 transition-colors duration-300 hover:scale-110' />}
-          href="tel:+250784644014"
-          text="+250 784 64 40 14"
+          href="tel:+250782743397"
+          text="+250 782 743 397 / +250 784 898 341"
           className="text-green-600"
         />
         <ContactInfoItem

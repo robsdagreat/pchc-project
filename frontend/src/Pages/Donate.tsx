@@ -70,11 +70,16 @@ const Donate = () => {
     loadTiers();
   }, []);
 
+  const WHATSAPP_NUMBER = '250782743397';
+
   const handleDonate = (e: React.FormEvent) => {
     e.preventDefault();
     const finalAmount = selectedTier === 'custom' ? customAmount : selectedTier;
-    console.log(`Processing ${isMonthly ? 'monthly' : 'one-time'} donation of $${finalAmount}`);
-    alert("This is a demonstration. Thank you for your interest in supporting our cause!");
+    const frequency = isMonthly ? 'monthly' : 'one-time';
+    const message = finalAmount
+      ? `Hello, I would like to make a ${frequency} donation of $${finalAmount} to Pallotti Children's Hope Centre.`
+      : `Hello, I would like to make a donation to Pallotti Children's Hope Centre.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center bg-[#FCF8F2]"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div></div>;

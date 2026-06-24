@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../Context/AuthContext.js';
 import { fetchData } from '../../utils/api.js';
 import LoginBg from '../../assets/login-bg.png';
-import Logo from '../../assets/Logo.png';
+import Logo from '../../assets/Logo.jpeg';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');

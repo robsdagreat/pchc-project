@@ -88,3 +88,9 @@ CREATE TABLE home_content (
     is_active BOOLEAN DEFAULT TRUE,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Indexes to speed up the lookups each controller actually performs
+CREATE INDEX IF NOT EXISTS idx_comments_blog_id ON comments(blog_id);
+CREATE INDEX IF NOT EXISTS idx_blogs_created_at ON blogs(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_gallery_created_at ON gallery(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_team_members_display_order ON team_members(display_order ASC);

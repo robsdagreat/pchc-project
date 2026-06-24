@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Loader2, CheckCircle2 } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa6';
 import { fetchData } from '../utils/api.js';
 import { HOME_CONTENT } from '../constants/content';
 
@@ -160,6 +161,9 @@ const HomeContact = () => {
             </a>
             <a href={contact.socials.twitter} className="text-white hover:text-green-100 transition-all transform hover:scale-125 focus:outline-none">
               <Twitter className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
+            </a>
+            <a href={contact.socials.tiktok} className="text-white hover:text-green-100 transition-all transform hover:scale-125 focus:outline-none">
+              <FaTiktok className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </div>
         </div>

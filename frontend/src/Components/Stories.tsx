@@ -11,10 +11,10 @@ const Stories = () => {
   useEffect(() => {
     const loadStories = async () => {
       try {
-        const response = await fetchData('/blogs');
+        const response = await fetchData('/blogs?limit=5');
         const blogsArray = response.data.blogs;
-        
-        const formattedStories = blogsArray.slice(0, 5).map((blog: any) => ({
+
+        const formattedStories = blogsArray.map((blog: any) => ({
           id: blog.id,
           type: blog.media_type || 'image',
           mediaUrl: blog.media_url || 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=800',

@@ -4,7 +4,10 @@ import { AppError } from '../middlewares/error.middleware.js';
 
 export const getAllBlogs = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await db.query('SELECT * FROM blogs ORDER BY created_at DESC');
+    const limit = parseInt(req.query.limit as string, 10);
+    const result = Number.isInteger(limit) && limit > 0
+      ? await db.query('SELECT * FROM blogs ORDER BY created_at DESC LIMIT $1', [limit])
+      : await db.query('SELECT * FROM blogs ORDER BY created_at DESC');
     res.status(200).json({
       status: 'success',
       results: result.rows.length,

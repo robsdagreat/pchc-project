@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import Hero from "../Components/Hero.js";
-import { fetchData } from "../utils/api.js";
 import Team from "../Components/Team.js";
 import HomeContact from "../Components/HomeContact.js";
 import WhoWeAre from "../Components/WhoWeAre.js";
@@ -13,16 +11,6 @@ import GetInvolved from "../Components/GetInvolved.js";
 import { HOME_CONTENT } from "../constants/content";
 
 const Home = () => {
-  useEffect(() => {
-    const loadHomeData = async () => {
-      try {
-        await fetchData('/content/homepage');
-      } catch (err) {
-        console.error('Failed to load other homepage data', err);
-      }
-    };
-    loadHomeData();
-  }, []);
 
   return (
     <div className="scroll-smooth">

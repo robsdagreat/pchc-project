@@ -4,18 +4,27 @@ import { AppError } from '../middlewares/error.middleware.js';
 
 export const getHomepageData = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const heroResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['hero']);
-    const aboutResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['about']);
-    const whatWeDoResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['whatWeDo']);
-    const impactResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['impact']);
-    const achievementsResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['achievements']);
-    const getInvolvedResult = await db.query('SELECT * FROM home_content WHERE section_name = $1', ['getInvolved']);
-    
-    // Fetch latest 3 blogs for the homepage
-    const storiesResult = await db.query('SELECT * FROM blogs ORDER BY created_at DESC LIMIT 3');
-    
-    // Fetch all team members
-    const teamResult = await db.query('SELECT * FROM team_members ORDER BY display_order ASC');
+    const [
+      heroResult,
+      aboutResult,
+      whatWeDoResult,
+      impactResult,
+      achievementsResult,
+      getInvolvedResult,
+      storiesResult,
+      teamResult,
+    ] = await Promise.all([
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['hero']),
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['about']),
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['whatWeDo']),
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['impact']),
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['achievements']),
+      db.query('SELECT * FROM home_content WHERE section_name = $1', ['getInvolved']),
+      // Latest 3 blogs for the homepage
+      db.query('SELECT * FROM blogs ORDER BY created_at DESC LIMIT 3'),
+      // All team members
+      db.query('SELECT * FROM team_members ORDER BY display_order ASC'),
+    ]);
 
     res.status(200).json({
       status: 'success',

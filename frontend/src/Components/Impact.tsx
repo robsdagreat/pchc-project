@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchData } from '../utils/api.js';
-import VolunteerImg from '../assets/impact_volunteer.png';
+import VolunteerImg from '../assets/20260206_100137.jpg.jpeg';
 
 const Impact = () => {
   const [content, setContent] = useState<any>(null);
@@ -74,13 +74,10 @@ const Impact = () => {
           {/* Left Side: Image */}
           <div className="flex-1 w-full lg:w-1/2 relative flex justify-center lg:justify-start items-end mb-4 lg:mb-0">
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-green-500/5 rounded-[100%] blur-3xl -z-10"></div>
-            <img 
-              src={content?.image_url || VolunteerImg} 
-              alt="PCHC Volunteer" 
+            <img
+              src={VolunteerImg}
+              alt="PCHC Volunteer"
               className="w-full h-auto object-contain max-w-[300px] sm:max-w-[350px] md:max-w-[420px] drop-shadow-2xl z-10"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = VolunteerImg;
-              }}
             />
           </div>
  
